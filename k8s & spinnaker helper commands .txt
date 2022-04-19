@@ -1,0 +1,7 @@
+docker run -p 8084:8084 -p 9000:9000 --name halyard --rm -v c:\Users\skaap\.hal:/home/spinnaker/.hal -d us-docker.pkg.dev/spinnaker-community/docker/halyard:stable
+
+hal config storage s3 edit --endpoint http://192.168.68.106:9002 --access-key-id minioadmin --secret-access-key minioadmin
+
+
+ ansible-playbook k8s_containrd_pkg.yml -k -K
+ sudo ansible-playbook -i atomika_inventory.yml k8s_master_init.yml 192.168.68.115
