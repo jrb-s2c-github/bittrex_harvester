@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <!--	<parent>-->
+    <!--		<groupId>org.springframework.boot</groupId>-->
+    <!--		<artifactId>spring-boot-starter-parent</artifactId>-->
+    <!--		<version>2.5.8</version>-->
+    <!--		<relativePath/> &lt;!&ndash; lookup parent from repository &ndash;&gt;-->
+    <!--	</parent>-->
+    <parent>
+        <groupId>za.co.s2c.cb</groupId>
+        <artifactId>main</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <!--    <groupId>za.co.s2c</groupId>-->
+    <artifactId>bittrex_tickers</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>harvester</name>
+    <description>Crypto Exchange Data Harvester</description>
+    <properties>
+        <java.version>11</java.version>
+        <!--		<solace-spring-boot.version>1.1.0</solace-spring-boot.version>-->
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+        <!--		<dependency>-->
+        <!--			<groupId>org.springframework.boot</groupId>-->
+        <!--			<artifactId>spring-boot-starter-web</artifactId>-->
+        <!--		</dependency>-->
+        <!--		<dependency>-->
+        <!--			<groupId>com.solace.spring.boot</groupId>-->
+        <!--			<artifactId>solace-spring-boot-starter</artifactId>-->
+        <!--		</dependency>-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-cache</artifactId>
+        </dependency>
+
+        <!--		<dependency>-->
+        <!--			<groupId>com.github.signalr4j</groupId>-->
+        <!--			<artifactId>signalr4j</artifactId>-->
+        <!--&lt;!&ndash;			<version>2.0.3</version>&ndash;&gt;-->
+        <!--		</dependency>-->
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>za.co.s2c.cb</groupId>
+            <artifactId>model</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>za.co.s2c.cb</groupId>
+            <artifactId>bittrex_client</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+    </dependencies>
+    <!--	<dependencyManagement>-->
+    <!--		<dependencies>-->
+    <!--&lt;!&ndash;			<dependency>&ndash;&gt;-->
+    <!--&lt;!&ndash;				<groupId>com.solace.spring.boot</groupId>&ndash;&gt;-->
+    <!--&lt;!&ndash;				<artifactId>solace-spring-boot-bom</artifactId>&ndash;&gt;-->
+    <!--&lt;!&ndash;				<version>${solace-spring-boot.version}</version>&ndash;&gt;-->
+    <!--&lt;!&ndash;				<type>pom</type>&ndash;&gt;-->
+    <!--&lt;!&ndash;				<scope>import</scope>&ndash;&gt;-->
+    <!--&lt;!&ndash;			</dependency>&ndash;&gt;-->
+
+    <!--			<dependency>-->
+    <!--				<groupId>com.hazelcast</groupId>-->
+    <!--				<artifactId>hazelcast-all</artifactId>-->
+    <!--				<version>4.0.2</version>-->
+    <!--			</dependency>-->
+
+    <!--		</dependencies>-->
+    <!--	</dependencyManagement>-->
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <excludes>
+                        <exclude>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                        </exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>com.google.cloud.tools</groupId>
+                <artifactId>jib-maven-plugin</artifactId>
+                <version>3.1.4</version>
+                <configuration>
+                    <from>
+                        <image>openjdk:11-jdk-slim</image>
+                    </from>
+                    <to>
+                        <image>docker.io/rbuhrmann/cc-harvester</image>
+                    </to>
+                </configuration>
+            </plugin>
+
+        </plugins>
+    </build>
+
+</project>
