@@ -1,0 +1,20 @@
+<hazelcast
+        xsi:schemaLocation="http://www.hazelcast.com/schema/config
+   http://www.hazelcast.com/schema/config/hazelcast-config-3.12.12.xsd"
+        xmlns="http://www.hazelcast.com/schema/config"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <instance-name>XML_Hazelcast_Instance</instance-name>
+
+<!--    <network>-->
+<!--        <rest-api enabled="true">-->
+<!--            <endpoint-group name="CLUSTER_READ" enabled="true"/>-->
+<!--            <endpoint-group name="HEALTH_CHECK" enabled="true"/>-->
+<!--            <endpoint-group name="DATA" enabled="true"/>-->
+<!--        </rest-api>-->
+<!--    </network>-->
+
+<!--    <properties>-->
+<!--        <property name="hazelcast.jmx">true</property>-->
+<!--    </properties>-->
+</hazelcast>
