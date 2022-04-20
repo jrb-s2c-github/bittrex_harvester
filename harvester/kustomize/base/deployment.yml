@@ -21,4 +21,11 @@ spec:
         - image: rbuhrmann/cc-harvester
           name: cc-harvester
           resources: {}
+      volumes:
+        - configMap:
+            items:
+              - key: application.properties
+                path: application.properties
+            name: cryptobot-cm
+          name: config
 status: {}
