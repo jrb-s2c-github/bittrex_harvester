@@ -1,0 +1,11 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: cryptobot-cm
+data:
+  application.properties: |
+    spring.data.cassandra.keyspace-name=sample
+    spring.data.cassandra.port=9042
+    spring.data.cassandra.contact-points=192.168.68.124
+    spring.data.cassandra.local-datacenter=datacenter1

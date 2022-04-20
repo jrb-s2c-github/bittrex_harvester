@@ -5,3 +5,11 @@ hal config storage s3 edit --endpoint http://192.168.68.106:9002 --access-key-id
 
  ansible-playbook k8s_containrd_pkg.yml -k -K
  sudo ansible-playbook -i atomika_inventory.yml k8s_master_init.yml 192.168.68.115
+ 
+ https://spinnaker.io/docs/setup/install/providers/docker-registry/#dockerhub
+ hal config provider docker-registry enable
+ hal config provider docker-registry account add my-docker-registry --repositories rbuhrmann/cc-candler rbuhrmann/cc-harvester --address index.docker.io --username rbuhrnann
+ 
+ kubectl create deployment cc-harvester --image  rbuhrmann/cc-harvester -o yaml --dry-run=client > deployment.yaml
+ kubectl create service clusterip cc-harvester --tcp 9090:8080 -o yaml --dry-run=true > service.yaml
+ 
