@@ -21,6 +21,9 @@ spec:
         - image: rbuhrmann/cc-harvester
           name: cc-harvester
           resources: {}
+          volumeMounts:
+            - mountPath: /config
+              name: config
       volumes:
         - configMap:
             items:
