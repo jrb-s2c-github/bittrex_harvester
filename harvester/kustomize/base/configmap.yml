@@ -11,3 +11,4 @@ data:
     spring.data.cassandra.local-datacenter=datacenter1
     is_local=false
     logging.level.za.co.s2c=DEBUG
+    logging.level.root=DEBUG
