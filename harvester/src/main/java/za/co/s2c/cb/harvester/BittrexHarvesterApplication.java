@@ -1,6 +1,7 @@
 package za.co.s2c.cb.harvester;
 
 import com.hazelcast.config.Config;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
@@ -10,9 +11,12 @@ import za.co.s2c.cb.bittrex_client.Streamer;
 
 @SpringBootApplication
 @EnableCaching
+@Slf4j
 public class BittrexHarvesterApplication {
 
 	public static void main(String[] args) throws Exception {
+
+		log.error ("bingo1");
 
 		SpringApplication application = new SpringApplication(BittrexHarvesterApplication.class);
 //		application.setWebApplicationType(WebApplicationType.NONE);
@@ -27,6 +31,7 @@ public class BittrexHarvesterApplication {
 	@ConditionalOnProperty(name="is_local", havingValue = "false")
 	@Bean
 	Config config() {
+		log.error ("bingo2");
 		Config config = new Config();
 		config.getNetworkConfig().getJoin().getTcpIpConfig().setEnabled(false);
 		config.getNetworkConfig().getJoin().getMulticastConfig().setEnabled(false);

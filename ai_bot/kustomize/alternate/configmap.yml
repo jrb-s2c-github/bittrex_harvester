@@ -6,4 +6,3 @@ metadata:
 data:
   application.properties: |
     spring.data.cassandra.contact-points=192.168.68.124
-    is_local=false

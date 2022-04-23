@@ -21,6 +21,7 @@
     <description>Crypto Exchange Data Harvester</description>
     <properties>
         <java.version>11</java.version>
+        <maven.compiler.target>11</maven.compiler.target>
         <!--		<solace-spring-boot.version>1.1.0</solace-spring-boot.version>-->
     </properties>
     <dependencies>
@@ -108,10 +109,10 @@
                 <version>3.1.4</version>
                 <configuration>
                     <from>
-                        <image>openjdk:16-jdk-slim</image>
+                        <image>openjdk:11-jdk-slim</image>
                     </from>
                     <to>
-                        <image>docker.io/rbuhrmann/cc-harvester:8</image>
+                        <image>docker.io/rbuhrmann/cc-harvester:24</image>
                     </to>
                 </configuration>
             </plugin>
