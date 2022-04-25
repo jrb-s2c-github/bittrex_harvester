@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: candler-cm2
+  name: candler-cm
 data:
   application.properties: |
     spring.data.cassandra.keyspace-name=sample
