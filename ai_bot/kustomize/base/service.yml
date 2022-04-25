@@ -13,6 +13,6 @@ spec:
       targetPort: 8080
   selector:
     app: cc-candler
-  type: NodePort
+  type: ClusterIP
 status:
   loadBalancer: {}
