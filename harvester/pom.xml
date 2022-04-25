@@ -68,6 +68,10 @@
             <artifactId>bittrex_client</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
+        <dependency>
+            <groupId>com.hazelcast</groupId>
+            <artifactId>hazelcast-kubernetes</artifactId>
+        </dependency>
     </dependencies>
     <!--	<dependencyManagement>-->
     <!--		<dependencies>-->
@@ -112,7 +116,7 @@
                         <image>openjdk:11-jdk-slim</image>
                     </from>
                     <to>
-                        <image>docker.io/rbuhrmann/cc-harvester:24</image>
+                        <image>docker.io/rbuhrmann/cc-harvester:25</image>
                     </to>
                 </configuration>
             </plugin>

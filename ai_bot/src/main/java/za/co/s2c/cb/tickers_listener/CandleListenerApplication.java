@@ -34,6 +34,8 @@ public class CandleListenerApplication {
         candleListener.init();
     }
 
+    // NB remember to do the permissions: kubectl apply -f https://raw.githubusercontent.com/hazelcast/hazelcast-kubernetes/master/rbac.yaml
+    //      from https://github.com/hazelcast/hazelcast-kubernetes#granting-permissions-to-use-kubernetes-api
     @ConditionalOnProperty(name="is_local", havingValue = "false")
     @Bean
     Config config() {

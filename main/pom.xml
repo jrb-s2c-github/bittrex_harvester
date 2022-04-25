@@ -34,6 +34,7 @@
                 <artifactId>hazelcast-all</artifactId>
                 <version>4.0.2</version>
             </dependency>
+
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
@@ -41,7 +42,11 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-
+            <dependency>
+                <groupId>com.hazelcast</groupId>
+                <artifactId>hazelcast-kubernetes</artifactId>
+                <version>1.5.2</version>
+            </dependency>
             <!-- to write integration test and mock stub using WireMock -->
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
