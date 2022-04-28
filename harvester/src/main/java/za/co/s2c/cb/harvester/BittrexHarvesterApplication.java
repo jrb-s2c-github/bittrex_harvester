@@ -25,6 +25,9 @@ public class BittrexHarvesterApplication {
 //		new Streamer().start(new String[] {"tickers"});
 		new Streamer().start(new String[] {"candle_ETH-BTC_MINUTE_1"});
 		new Streamer().start(new String[] {"candle_ADA-BTC_MINUTE_1"});
+		new Streamer().start(new String[] {"candle_BTC-USDT_MINUTE_1"});
+		new Streamer().start(new String[] {"candle_XRP-BTC_MINUTE_1"});
+		new Streamer().start(new String[] {"candle_LTC-BTC_MINUTE_1"});
 
 	}
 

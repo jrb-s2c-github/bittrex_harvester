@@ -15,3 +15,11 @@ hal config storage s3 edit --endpoint http://192.168.68.106:9002 --access-key-id
  hal config artifact gitrepo account add jrb-s2c-github --token-file /home/spinnaker/.hal/token_file
  
  C:\minio.exe server c:\minnio_data --console-address ":9001" --address ":9002"
+ 
+ schedule pods to control planes: kubectl taint nodes --all node-role.kubernetes.io/master-
+ 
+ kubectl create namespace alternate
+ 
+ do rbac so hazelcast nodes can join up
+ 
+ 28 April 11:15 begin

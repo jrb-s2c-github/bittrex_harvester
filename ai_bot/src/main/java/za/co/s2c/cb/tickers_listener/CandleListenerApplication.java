@@ -36,6 +36,7 @@ public class CandleListenerApplication {
 
     // NB remember to do the permissions: kubectl apply -f https://raw.githubusercontent.com/hazelcast/hazelcast-kubernetes/master/rbac.yaml
     //      from https://github.com/hazelcast/hazelcast-kubernetes#granting-permissions-to-use-kubernetes-api
+    //      also amended rbac ClusterRoleBinding to work for namespace alternate
     @ConditionalOnProperty(name="is_local", havingValue = "false")
     @Bean
     Config config() {
