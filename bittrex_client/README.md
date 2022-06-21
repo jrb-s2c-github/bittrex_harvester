@@ -1,1 +1,1 @@
-Collection of Feign clients to retrieve data from the bittrex API.
+Collection of Feign REST and Websocket clients to retrieve data from the bittrex API.
