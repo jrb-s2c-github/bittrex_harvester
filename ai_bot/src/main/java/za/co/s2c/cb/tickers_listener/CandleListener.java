@@ -40,7 +40,6 @@ class CandleListener {
 
     public void init() {
         streamedFromBittrex = hazelcastInstance.getQueue("candles_stream_from_bittrex");
-//        candlesAvailableForTrading = hazelcastInstance.getMap("candles_available_for_trading");
 
         while (true) {
             String raw = streamedFromBittrex.poll();
@@ -66,10 +65,9 @@ class CandleListener {
 
 
                 candleRepository.save(candle);
-//                ISet<za.co.s2c.cb.model.linqua_franca.Candle> candles = candlesAvailableForTrading.get(candle.getMarketSymbol());
-//                if (candles == null) {
+
                 ISet<za.co.s2c.cb.model.linqua_franca.Candle> candles = hazelcastInstance.getSet(candle.getMarketSymbol());
-//                }
+
 
                 // check whether a decision to trade on past candles are triggered by the latest candle
                 double profitMargin = 0.01;

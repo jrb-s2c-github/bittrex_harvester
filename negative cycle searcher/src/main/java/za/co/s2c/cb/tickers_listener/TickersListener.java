@@ -22,7 +22,6 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.*;
 
-// TODO: 2022/03/17 configure logging levels
 @Slf4j
 @Component
 class TickersListener /*implements ItemListener<java.lang.String>*/ {
