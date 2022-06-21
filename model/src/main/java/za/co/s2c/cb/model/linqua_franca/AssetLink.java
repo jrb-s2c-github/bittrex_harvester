@@ -1,9 +1,11 @@
 package za.co.s2c.cb.model.linqua_franca;
 
-import lombok.*;
+import lombok.Builder;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 
 @Builder
 @EqualsAndHashCode(exclude = {"askRate", "bidRate", "lastTradeRate", "from", "to", "logWeight"})
@@ -46,7 +48,6 @@ public class AssetLink implements Serializable {
             return 1 / askRate;
         else
             return bidRate;
-//        return Math.pow(2.0, logWeight);
     }
 
     public AssetLink afterBuild(boolean isBuy) {
@@ -55,10 +56,6 @@ public class AssetLink implements Serializable {
         if (! isBuy) {
             rate = bidRate;
         }
-//        double rate = 1 / lastTradeRate;
-//        if (! isBuy) {
-//            rate = lastTradeRate;
-//        }
 
         logWeight = Math.log10(rate) / Math.log10(2);
 

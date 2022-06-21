@@ -4,45 +4,26 @@ import java.io.*;
 import java.util.Arrays;
 import java.util.Map;
 
-//@NoArgsConstructor
-
-//@Builder(toBuilder = false)
-//@EqualsAndHashCode(exclude = {"canOwn", "neighbours", "parent"})
 public class AssetNoLombok implements Serializable {
 
     private String exchange = "Bittrex";
 
-//    @Getter
     private String code;
-//    @Setter
-//    @Getter
+
     private boolean canOwn;
-//    @Getter
-    // key is code of Asset instance being linked referred instance of AssetLink
-//    private Map<Asset, AssetLink> neighbours; // TODO use HazelCast IMap?
+
     @Deprecated
     private byte[] neighbours; // TODO remove
 
-//    @Setter
-//    @Getter
+
     private AssetNoLombok parent;
 
     public void incrementTransactions() {
         transactionAmounts++;
     }
 
-//    public void incrementSales() {
-//        saleAmounts++;
-//    }
 
-//    private int buyAmounts;
-//    @Getter
-////    @Setter
     private int transactionAmounts;
-
-//    private Map<String, AssetLink> initNeighbours() {
-//        return new HashMap<>(100);
-//    }
 
     AssetNoLombok(final String exchange, final String code, final boolean canOwn, final byte[] neighbours, final AssetNoLombok parent, final int transactionAmounts) {
         this.exchange = exchange;

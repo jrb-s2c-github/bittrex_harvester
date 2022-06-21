@@ -1,14 +1,12 @@
 package za.co.s2c.cb.model.linqua_franca;
 
-import lombok.*;
+import lombok.Builder;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.io.Serializable;
-import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
-import java.util.Set;
-
-//@NoArgsConstructor
 
 @Builder(toBuilder = false)
 @EqualsAndHashCode(exclude = {"canOwn", "neighbours", "parent", "transactionAmounts", "exchange"})
@@ -22,7 +20,6 @@ public class Asset implements Serializable {
     @Getter
     private boolean canOwn;
     @Getter
-    // key is code of Asset instance being linked referred instance of AssetLink
     private Map<Asset, AssetLink> neighbours;
 
     @Setter
@@ -33,18 +30,9 @@ public class Asset implements Serializable {
         transactionAmounts++;
     }
 
-//    public void incrementSales() {
-//        saleAmounts++;
-//    }
-
-//    private int buyAmounts;
     @Getter
-//    @Setter
     private int transactionAmounts;
 
-//    private Map<String, AssetLink> initNeighbours() {
-//        return new HashMap<>(100);
-//    }
 
     @Override
     public String toString() {

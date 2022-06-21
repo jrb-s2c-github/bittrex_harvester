@@ -17,19 +17,20 @@ import com.github.signalr4j.client.hubs.HubProxy;
 import com.hazelcast.collection.IQueue;
 import com.hazelcast.core.Hazelcast;
 import com.hazelcast.core.HazelcastInstance;
+import lombok.extern.slf4j.Slf4j;
 
 
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
-import java.util.Formatter;
-import java.util.UUID;
+import java.util.*;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
 // TODO split authentication out into different class ?
+@Slf4j
 public class Streamer
 {
     static final String URL = "https://socket-v3.bittrex.com/signalr";
@@ -37,6 +38,7 @@ public class Streamer
     public static final String CANDLE = "CANDLE";
     private static IQueue<String> tickersStreamedFromBittrex;
     private static IQueue<String> candleStreamedFromBittrex;
+    public long lastReception;
 
     static {
         HazelcastInstance hazelcastInstance = Hazelcast.getAllHazelcastInstances().iterator().next();
@@ -57,7 +59,7 @@ public class Streamer
             System.out.println("Authentication skipped because API key was not provided");
         }
 
-        subscribe(client, channels);
+        subscribe(client, channels, this);
     }
 
     static Boolean connect(SocketClient client)
@@ -112,14 +114,15 @@ public class Streamer
         }
     }
 
-    static void subscribe(SocketClient client, String[] channels)
+    static void subscribe(SocketClient client, String[] channels, Streamer streamer)
     {
 //        var channels = new String[] { "heartbeat", "trade_BTC-USD", "balance" };
 
 
         var msgHandler = new Object() {
             public void heartbeat() {
-                System.out.println("<heartbeat>");
+                streamer.lastReception = new Date().getTime();
+//                System.out.println("<heartbeat>");
             }
 
             public void trade(String compressedData) {
@@ -163,6 +166,7 @@ public class Streamer
         if (msgType.equals(TICKERS)) {
             tickersStreamedFromBittrex.add(compressedData);
         } else if (msgType.equals(CANDLE)) {
+            log.debug("Amount of candles in process: " + candleStreamedFromBittrex.size());
             candleStreamedFromBittrex.add(compressedData);
         }
     }

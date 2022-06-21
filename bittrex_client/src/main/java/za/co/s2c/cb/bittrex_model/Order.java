@@ -21,5 +21,4 @@ public class Order {
     private String createdAt;
     private String updatedAt;
     private String closedAt;
-    // TODO orderToCancel ?
 }
